@@ -13,7 +13,7 @@ namespace Singleton
         // thread-safe creation of the instance
         // Public modifier creates a Global access point 
         // for the class instance
-        // No need for a seperate getInstance Function. 
+        // No need for a seperate accessor Function. 
         public static readonly SingletonClassA Instance = new SingletonClassA();
 
         // Private (or Protected) Constructor ensures the 
