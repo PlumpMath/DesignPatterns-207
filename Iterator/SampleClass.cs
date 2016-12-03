@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace Iterator
 {
+    // Sample Class upon which we will define 
+    // our iterator. The concept of the 
     class SampleClass
     {
         private ArrayList items = new ArrayList();
@@ -23,11 +25,22 @@ namespace Iterator
 
         public object this[int index]
         {
-            get { return items[index]; }
-            set { items.Insert(index, value); }
+            get
+            {
+                return items[index];
+            }
+            set
+            {
+                items.Insert(index, value);
+            }
         }
     }
 
+    // SampleClassIterator is an iterator class
+    // which does not know anything about the 
+    // internal representation of SampleClass
+    // but is used only to iterate over all the 
+    // instances of the SampleClass.
     class SampleClassIterator : Iterator
     {
         private SampleClass classObject;
@@ -63,6 +76,11 @@ namespace Iterator
             }
 
             return classObject[++currentLocation];
+        }
+
+        public override bool HasNext()
+        {
+            return (currentLocation < objectSize - 1); 
         }
 
         public override void Reset()
